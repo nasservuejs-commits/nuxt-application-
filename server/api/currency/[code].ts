@@ -1,7 +1,6 @@
 
 export default defineEventHandler(async (event) => {
   const code = getRouterParam(event, 'code')
-  const config = useRuntimeConfig()
 
   if (!code || !/^[A-Z]{3}$/.test(code)) {
     throw createError({
@@ -17,7 +16,7 @@ export default defineEventHandler(async (event) => {
     }>
   }>('https://api.currencyapi.com/v3/latest', {
     headers: {
-      apikey: config.currencyApiKey
+      apikey: getCurrencyApiKey()
     },
     query: {
       currencies: code,

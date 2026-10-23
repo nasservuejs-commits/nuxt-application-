@@ -1,8 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from "@tailwindcss/vite";
 
-declare const process: { env: { CURRENCYAPI_KEY?: string } };
-
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -29,7 +27,9 @@ export default defineNuxtConfig({
       ],
     },
   },
-   runtimeConfig: {
-    currencyApiKey: process.env.CURRENCYAPI_KEY
+  runtimeConfig: {
+    // Empty placeholder only — the real key is read at runtime (never inlined into the build)
+    // from NUXT_CURRENCY_API_KEY or CURRENCYAPI_KEY. See server/utils/currencyApiKey.ts
+    currencyApiKey: ''
   }
 });
