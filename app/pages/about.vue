@@ -1,7 +1,7 @@
 
 <script setup lang="ts">
 const { data, pending, error } = await useFetch(
-  '/api/currency/GBP'
+  '/api/currency/USD'
 )
 </script>
 
